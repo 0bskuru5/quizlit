@@ -1,0 +1,124 @@
+{% load static %}
+<html>
+<head>
+    <title>Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #007bff;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 22%;
+            text-align: center;
+        }
+        .stat-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .stat-card p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+        .stat-card .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #28a745;
+        }
+        .chart {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav ul {
+          list-style-type: none; /* Removes bullets */
+          padding: 0; /* Removes any padding */
+          margin-top: 20px; /* Removes any margin */
+          display: flex; /* Aligns items horizontally */
+          justify-content: flex-end; /* Aligns the items to the right */
+        }
+
+        nav ul li {
+          margin-left: 20px; /* Space between links */
+        }
+
+        nav ul li a {
+          text-decoration: none; /* Removes underline */
+          color: #333; /* Sets text color */
+          padding: 10px 15px; /* Adds padding around the links */
+          border-radius: 5px; /* Adds rounded corners */
+          font-weight: bold; /* Makes the text bold */
+          transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+
+        nav ul li a:hover {
+          color: white; /* Changes text color on hover */
+          background-color: #007bff; /* Adds background color on hover */
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="{% static 'management/css/styles.css' %}" /> -->
+  </head>
+<body>
+    <nav>
+      <ul>
+        <li><a href="{% url 'management_dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'user_activity_log' %}">Activity Log</a></li>
+        <li><a href="{% url 'statistics' %}">Statistics</a></li>
+        <li><a href="{% url 'management_logout' %}">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+        <h1>Overall Quiz App Statistics</h1>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="icon">👥</div>
+                <h3>Total Users</h3>
+                <p>{{ total_users }}</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">📚</div>
+                <h3>Total Categories</h3>
+                <p>{{ total_categories }}</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">📝</div>
+                <h3>Total Quizzes</h3>
+                <p>{{ total_quizzes }}</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">💵</div>
+                <h3>Total Money Earned</h3>
+                <p>${{ total_money_earned }}</p>
+            </div>
+        </div>
+
+        <!-- Overall Stats Chart -->
+        <div class="chart">
+            <img src="data:image/png;base64,{{ img_base64 }}" alt="Overall Stats Chart"/>
+        </div>
+    </div>
+</body>
+</html>

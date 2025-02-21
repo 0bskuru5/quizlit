@@ -1,0 +1,26 @@
+{% extends 'management/base.html' %}
+{% debug %}
+
+{% block content %}
+    <h1>Quiz Activity Log</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Category</th>
+                <th>Marks</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quiz in quizzes %}
+                <tr>
+                    <td>{{ quiz.user.username }}</td>
+                    <td>{{ quiz.category.name }}</td>
+                    <td>{{ quiz.marks }}</td>
+                    <td>{{ quiz.created_at }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

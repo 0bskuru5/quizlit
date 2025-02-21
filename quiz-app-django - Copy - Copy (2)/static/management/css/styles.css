@@ -1,0 +1,107 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+h1 {
+    font-size: 28px;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Profile Info */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Back Button */
+.back-btn {
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    text-align: center;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+}
+
+
+nav ul {
+  list-style-type: none; /* Removes bullets */
+  padding: 0; /* Removes any padding */
+  margin: 0; /* Removes any margin */
+  display: flex; /* Aligns items horizontally */
+  justify-content: flex-end; /* Aligns the items to the right */
+}
+
+nav ul li {
+  margin-left: 20px; /* Space between links */
+}
+
+nav ul li a {
+  text-decoration: none; /* Removes underline */
+  color: #333; /* Sets text color */
+  padding: 10px 15px; /* Adds padding around the links */
+  border-radius: 5px; /* Adds rounded corners */
+  font-weight: bold; /* Makes the text bold */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+nav ul li a:hover {
+  color: white; /* Changes text color on hover */
+  background-color: #007bff; /* Adds background color on hover */
+}
+

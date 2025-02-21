@@ -1,0 +1,98 @@
+{% extends 'management/base.html' %}
+
+{% block title %}Candidate Detail - {{ candidate.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ candidate.name }}'s Profile</h1>
+<p><strong>Email:</strong> {{ candidate.email }}</p>
+<p><strong>Phone:</strong> {{ candidate.phone_number|default:"N/A" }}</p>
+<p><strong>Status:</strong> {{ candidate.get_status_display }}</p>
+<p><strong>Total Score:</strong> {{ candidate.total_score }}</p>
+<p><strong>Joined At:</strong> {{ candidate.joined_at }}</p>
+
+<h2>Quiz History</h2>
+<table border="1">
+    <tr>
+        <th>Category</th>
+        <th>Marks</th>
+        <th>Date Taken</th>
+    </tr>
+    {% for quiz in quizzes %}
+    <tr>
+        <td>{{ quiz.category }}</td>
+        <td>{{ quiz.marks }}</td>
+        <td>{{ quiz.created_at }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No quizzes taken yet.</td></tr>
+    {% endfor %}
+</table>
+
+<h2>Payment Records</h2>
+<table border="1">
+    <tr>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Date Paid</th>
+    </tr>
+    {% for payment in payments %}
+    <tr>
+        <td>${{ payment.amount }}</td>
+        <td>{{ payment.status }}</td>
+        <td>{{ payment.created_at }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No payments recorded yet.</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+{% extends 'management/base.html' %}
+
+{% block title %}Candidate Detail - {{ candidate.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ candidate.name }}'s Profile</h1>
+<p><strong>Email:</strong> {{ candidate.email }}</p>
+<p><strong>Phone:</strong> {{ candidate.phone_number|default:"N/A" }}</p>
+<p><strong>Status:</strong> {{ candidate.get_status_display }}</p>
+<p><strong>Total Score:</strong> {{ candidate.total_score }}</p>
+<p><strong>Joined At:</strong> {{ candidate.joined_at }}</p>
+
+<h2>Quiz History</h2>
+<table border="1">
+    <tr>
+        <th>Category</th>
+        <th>Marks</th>
+        <th>Date Taken</th>
+    </tr>
+    {% for quiz in quizzes %}
+    <tr>
+        <td>{{ quiz.category }}</td>
+        <td>{{ quiz.marks }}</td>
+        <td>{{ quiz.created_at }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No quizzes taken yet.</td></tr>
+    {% endfor %}
+</table>
+
+<h2>Payment Records</h2>
+<table border="1">
+    <tr>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Date Paid</th>
+    </tr>
+    {% for payment in payments %}
+    <tr>
+        <td>${{ payment.amount }}</td>
+        <td>{{ payment.status }}</td>
+        <td>{{ payment.created_at }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No payments recorded yet.</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

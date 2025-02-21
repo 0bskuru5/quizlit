@@ -1,0 +1,38 @@
+{% extends 'management/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Management Dashboard</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Total Score</th>
+        <th>Quizzes Taken</th>
+        <th>Status</th>
+        <th>Total Payment</th>
+        <th>Payment Status</th>
+        <th>Actions</th>
+    </tr>
+    {% for candidate in candidates %}
+    <tr>
+        <td>{{ candidate.id }}</td>
+        <td>{{ candidate.username }}</td>
+        <td>{{ candidate.email }}</td>
+        <td>{{ candidate.total_score }}</td>
+        <td>{{ candidate.quiz_count }}</td>
+        <td>{{ candidate.status }}</td>
+        <td>${{ candidate.total_payment }}</td>
+        <td>{{ candidate.payment_status }}</td>
+        <td>
+            <a href="{% url 'candidate_detail' candidate.id %}">View</a>
+            {% if candidate.payment_status == "pending" %}
+                <a href="{% url 'approve_payment' candidate.id %}" class="approve-btn">Approve Payment</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
